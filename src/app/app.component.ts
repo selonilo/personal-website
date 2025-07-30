@@ -5,12 +5,14 @@ import { ProjectsComponent } from "./sections/projects/projects.component";
 import { ExperienceComponent } from "./sections/experience/experience.component";
 import { ContactComponent } from "./sections/contact/contact.component";
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import {CertificatesComponent} from "./sections/certificates/certificates.component";
+import {TeknofestComponent} from "./sections/teknofest/teknofest.component";
 declare const AOS: any;
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, HeroComponent, ProjectsComponent, ExperienceComponent, ContactComponent, NavbarComponent],
+  imports: [CommonModule, HeroComponent, ProjectsComponent, ExperienceComponent, ContactComponent, NavbarComponent, CertificatesComponent, TeknofestComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

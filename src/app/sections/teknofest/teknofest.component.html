@@ -1,0 +1,27 @@
+<section class="certificates-section" id="certificates">
+  <div class="cert-grid" data-aos="zoom-in">
+    <img
+      *ngFor="let cert of images"
+      [src]="cert"
+      class="cert-thumbnail"
+      (click)="selectImage(cert)"
+      alt="Sertifika"
+    />
+  </div>
+
+  <div class="cert-modal" *ngIf="selectedImage" (click)="selectedImage = ''">
+    <div class="cert-modal-content" (click)="$event.stopPropagation()">
+      <img [src]="selectedImage" alt="Büyütülmüş Sertifika"/>
+    </div>
+  </div>
+
+  <div class="youtube-section" data-aos="fade-up" data-aos-delay="900" data-aos-duration="1000">
+    <p class="youtube-text">
+      Teknofest ShiftDelete röportajımı izlemek için
+      <a href="https://www.youtube.com/watch?v=zCqFjAuPIRg&list=LL&index=8&t=190s" target="_blank" rel="noopener">
+        tıklayınız
+        <i class="pi pi-youtube"></i>
+      </a>
+    </p>
+  </div>
+</section>

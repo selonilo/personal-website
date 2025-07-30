@@ -1,0 +1,17 @@
+<section class="certificates-section" id="certificates">
+  <div class="cert-grid" data-aos="zoom-in">
+    <img
+      *ngFor="let cert of certificates"
+      [src]="cert"
+      class="cert-thumbnail"
+      (click)="selectCertificate(cert)"
+      alt="Sertifika"
+    />
+  </div>
+
+  <div class="cert-modal" *ngIf="selectedCertificate" (click)="selectedCertificate = ''">
+    <div class="cert-modal-content" (click)="$event.stopPropagation()">
+      <img [src]="selectedCertificate" alt="Büyütülmüş Sertifika" />
+    </div>
+  </div>
+</section>
