@@ -5,14 +5,17 @@ WORKDIR /app
 
 COPY package*.json ./
 
+# Tüm bağımlılıkları kur
 RUN npm install
 
-# Angular CLI global yükle (alpine için)
+# Angular CLI global yükle
 RUN npm install -g @angular/cli
 
+# Proje dosyalarını kopyala
 COPY . .
 
-RUN ng build
+# Angular projesini üretim modunda derle
+RUN npm run build --prod
 
 # 2. Production stage
 FROM nginx:alpine
