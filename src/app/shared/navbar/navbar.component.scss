@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  background-color: #000; // 🔥 Siyah arka plan
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  filter: brightness(0) invert(1); // 🔁 Eğer logon koyuysa ters çevirir, açık görünür
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+
+  a {
+    text-decoration: none;
+    color: #f0f0f0; // ✨ Açık gri yazı rengi
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #00bcd4; // 🌀 Hover'da mavi ton
+    }
+  }
+}
