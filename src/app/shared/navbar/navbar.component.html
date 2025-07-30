@@ -1,13 +1,20 @@
 <nav class="navbar" data-aos="fade-down" data-aos-duration="1000">
-    <a href="#hero" class="logo">
-        <img src="assets/images/logoSC.png" alt="Logo" />
-    </a>
-    <div class="nav-links">
-        <a href="#hero">Giriş</a>
-        <a href="#experience">Deneyim</a>
-        <a href="#certificates">Sertifikalar</a>
-        <a href="#teknofest">Teknofest</a>
-        <a href="#projects">Projeler</a>
-        <a href="#contact">İletişim</a>
-    </div>
+  <a href="#hero" class="logo" (click)="closeMenu()">
+    <img src="assets/images/logoSC.png" alt="Logo" />
+  </a>
+
+  <div class="menu-toggle" (click)="toggleMenu()">
+    <span [class.open]="menuOpen"></span>
+    <span [class.open]="menuOpen"></span>
+    <span [class.open]="menuOpen"></span>
+  </div>
+
+  <div class="nav-links" [class.active]="menuOpen">
+    <a href="#hero" (click)="closeMenu()">Giriş</a>
+    <a href="#experience" (click)="closeMenu()">Deneyim</a>
+    <a href="#certificates" (click)="closeMenu()">Sertifikalar</a>
+    <a href="#teknofest" (click)="closeMenu()">Teknofest</a>
+    <a href="#projects" (click)="closeMenu()">Projeler</a>
+    <a href="#contact" (click)="closeMenu()">İletişim</a>
+  </div>
 </nav>
