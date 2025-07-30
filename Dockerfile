@@ -1,11 +1,26 @@
-# Küçük ve hızlı nginx imajı
+# 1. Build stage
+FROM node:18-alpine AS build
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+# Angular CLI global yükle (alpine için)
+RUN npm install -g @angular/cli
+
+COPY . .
+
+RUN ng build
+
+# 2. Production stage
 FROM nginx:alpine
 
-# Build edilen dosyaları kopyala
-COPY ./dist/personal-website /usr/share/nginx/html
+COPY --from=build /app/dist/personal-website /usr/share/nginx/html
 
-# SPA için özel nginx config
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Portu expose et
 EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

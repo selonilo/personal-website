@@ -1,0 +1,18 @@
+# Node modülleri ve build klasörleri
+node_modules
+dist
+
+# Git dosyaları
+.git
+.gitignore
+
+# Docker dosyaları (isteğe bağlı, konteynere kopyalanmasın)
+Dockerfile
+docker-compose.yml
+
+# IDE ve sistem dosyaları
+.vscode
+.idea
+*.log
+*.md
+.DS_Store
