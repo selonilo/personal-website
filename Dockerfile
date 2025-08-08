@@ -1,22 +1,17 @@
 # 1. Build stage
-FROM node:18-alpine AS build
+FROM node:20-alpine AS build
 
 WORKDIR /app
 
 COPY package*.json ./
 
-# DevDependencies dahil her şeyi yükle
-RUN npm install -g npm@latest \
-    && npm config set include=dev true \
-    && npm install --legacy-peer-deps
+# DevDependencies dahil yükle
+RUN npm install --include=dev --legacy-peer-deps
 
-# Angular CLI global kur
 RUN npm install -g @angular/cli
 
-# Proje dosyalarını kopyala
 COPY . .
 
-# Build
 RUN npm run build
 
 # 2. Production stage
