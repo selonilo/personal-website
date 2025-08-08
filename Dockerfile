@@ -5,12 +5,19 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install --include=dev
+# DevDependencies dahil her şeyi yükle
+RUN npm install -g npm@latest \
+    && npm config set include=dev true \
+    && npm install --legacy-peer-deps
+
+# Angular CLI global kur
 RUN npm install -g @angular/cli
 
+# Proje dosyalarını kopyala
 COPY . .
 
-RUN npm run build  # Burada ekstra parametre yok
+# Build
+RUN npm run build
 
 # 2. Production stage
 FROM nginx:alpine
