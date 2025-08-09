@@ -5,8 +5,11 @@ WORKDIR /app
 
 COPY package*.json ./
 
-# Tüm bağımlılıkları kur
-RUN npm install
+# devDependencies dahil tüm paketleri yükle
+RUN npm install --legacy-peer-deps
+
+# Eksik kalmaması için özellikle devkit yükle
+RUN npm install @angular-devkit/build-angular --save-dev
 
 # Angular CLI global yükle
 RUN npm install -g @angular/cli
@@ -15,7 +18,7 @@ RUN npm install -g @angular/cli
 COPY . .
 
 # Angular projesini üretim modunda derle
-RUN npm run build --prod
+RUN npm run build --configuration production
 
 # 2. Production stage
 FROM nginx:alpine
